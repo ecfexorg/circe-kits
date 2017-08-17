@@ -1,0 +1,21 @@
+{
+  "name": "circe-checker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "varHarrie",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/koa": "^2.0.39",
+    "@types/lodash": "^4.14.73",
+    "@types/node": "^8.0.23",
+    "tslint": "^5.6.0",
+    "typescript": "^2.4.2"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4"
+  }
+}
