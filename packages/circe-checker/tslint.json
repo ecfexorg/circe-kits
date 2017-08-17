@@ -1,19 +1,5 @@
 {
-  "defaultSeverity": "error",
   "extends": [
-    "tslint:recommended"
-  ],
-  "jsRules": {},
-  "rules": {
-    "semicolon": ["never"],
-    "quotemark": ["single"],
-    "only-arrow-functions": ["allow-declarations", "allow-named-functions"],
-    "space-before-function-paren": ["always"],
-    "forin": false,
-    "object-literal-sort-keys": false,
-    "variable-name": ["allow-leading-underscore"],
-    "trailing-comma": [true, "never"],
-    "no-namespace": ["allow-declarations"]
-  },
-  "rulesDirectory": []
+    "../../tslint.json"
+  ]
 }
