@@ -1,6 +1,6 @@
 import * as Koa from 'koa'
 
-type StringOrArray = string | string[]
+export type StringOrArray = string | string[]
 
 export interface ICorsOptions {
   origin?: string,

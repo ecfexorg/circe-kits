@@ -1,7 +1,7 @@
 import {parse} from 'url'
 import * as Koa from 'koa'
 
-type Pattern = string | RegExp
+export type Pattern = string | RegExp
 
 export interface IUnlessOptions {
   paths?: Pattern[],
