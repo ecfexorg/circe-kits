@@ -4,6 +4,9 @@ import * as debug from 'debug'
 import * as _ from 'lodash'
 import * as requireDir from 'require-dir'
 
+declare const require: any
+declare const process: any
+
 const log = debug('circe-config')
 
 function isDirectory (dir: string) {
