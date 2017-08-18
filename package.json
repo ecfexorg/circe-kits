@@ -1,5 +1,19 @@
 {
+  "name": "circe-kits",
+  "author": "varHarrie",
+  "scripts": {
+    "clean": "gulp clean",
+    "build": "npm run clean && gulp build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ecfexorg/circe-kits"
+  },
 	"devDependencies": {
-		"lerna": "^2.0.0"
+		"del": "^3.0.0",
+		"gulp": "^3.9.1",
+		"gulp-typescript": "^3.2.1",
+		"lerna": "^2.0.0",
+		"typescript": "^2.4.2"
 	}
 }
