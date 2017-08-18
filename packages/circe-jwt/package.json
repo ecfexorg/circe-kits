@@ -1,6 +1,6 @@
 {
   "name": "circe-jwt",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -16,7 +16,7 @@
     "@types/node": "^8.0.24"
   },
   "dependencies": {
-    "circe-unless": "0.0.1",
+    "circe-unless": "^0.0.2",
     "jsonwebtoken": "^7.4.3"
   },
   "repository": {
