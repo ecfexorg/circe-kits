@@ -5,15 +5,16 @@
   ],
   "jsRules": {},
   "rules": {
-    "semicolon": ["never"],
-    "quotemark": ["single"],
-    "only-arrow-functions": ["allow-declarations", "allow-named-functions"],
-    "space-before-function-paren": ["always"],
     "forin": false,
+    "no-namespace": ["allow-declarations"],
     "object-literal-sort-keys": false,
-    "variable-name": ["allow-leading-underscore"],
+    "only-arrow-functions": ["allow-declarations", "allow-named-functions"],
+    "ordered-imports": [false],
+    "quotemark": ["single"],
+    "semicolon": ["never"],
+    "space-before-function-paren": ["always"],
     "trailing-comma": [true, "never"],
-    "no-namespace": ["allow-declarations"]
+    "variable-name": ["allow-leading-underscore"]
   },
   "rulesDirectory": []
 }
