@@ -6,13 +6,13 @@ const ts = require('gulp-typescript')
 const root = __dirname
 
 const packages = [
-  // 'circe-body-parser',
-  // 'circe-checker',
-  // 'circe-config',
-  // 'circe-cors',
-  // 'circe-jwt',
-  // 'circe-on-error',
-  // 'circe-response',
+  'circe-body-parser',
+  'circe-checker',
+  'circe-config',
+  'circe-cors',
+  'circe-jwt',
+  'circe-on-error',
+  'circe-response',
   'circe-unless'
 ]
 
@@ -23,7 +23,7 @@ function getPackageRoot (name) {
 packages.forEach((package) => {
   gulp.task(`build:${package}`, function () {
     const packageRoot = getPackageRoot(package)
-    const project = ts.createProject(path.join(packageRoot, 'tsconfig.json'))
+    const project = ts.createProject(path.join(packageRoot, 'tsconfig.json'), {typeRoots: [path.join(packageRoot, 'node_modules/@types')]})
     return gulp.src(`${packageRoot}/src/**/*.ts`)
       .pipe(project())
       .pipe(gulp.dest(path.join(packageRoot, 'dist')))
