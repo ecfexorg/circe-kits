@@ -1,0 +1,22 @@
+{
+  "name": "circe-body-parser",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "varHarrie",
+  "license": "MIT",
+  "dependencies": {
+    "co-body": "^5.1.1",
+    "formidable": "^1.1.1"
+  },
+  "devDependencies": {
+    "@types/co-body": "0.0.1",
+    "@types/formidable": "^1.0.29",
+    "@types/koa": "^2.0.39",
+    "@types/node": "^8.0.24"
+  }
+}
