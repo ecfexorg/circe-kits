@@ -26,3 +26,29 @@ export function fail (this: Koa.Context, data: any): any {
 export function error (this: Koa.Context, status: number = 404): void {
   this.status = status
 }
+
+export interface IAttachToOptions {
+  success?: string
+  fail?: string
+  error?: string
+}
+
+const defaultOptions: IAttachToOptions = {
+  success: 'success',
+  fail: 'fail',
+  error: 'success'
+}
+
+export default function attachTo (ctx: Koa.BaseContext | Koa.Context, options: IAttachToOptions) {
+  if (options.success) {
+    (ctx as any)[options.success] = success
+  }
+
+  if (options.fail) {
+    (ctx as any)[options.fail] = fail
+  }
+
+  if (options.error) {
+    (ctx as any)[options.error] = error
+  }
+}
