@@ -37,7 +37,7 @@ export interface IUnlessable {
   unless: typeof unless
 }
 
-export default function jwtMiddleware (options: IJWTOptions}): Koa.Middleware & IUnlessable {
+export default function jwtMiddleware (options: IJWTOptions): Koa.Middleware & IUnlessable {
   const secret = options.secret
   const key = options.key || 'user'
 
