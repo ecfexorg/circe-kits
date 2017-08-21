@@ -8,13 +8,13 @@ const root = __dirname
 const packages = [
   'circe-body-parser',
   'circe-checker',
+  'circe-combine-routers',
   'circe-config',
   'circe-cors',
   'circe-jwt',
   'circe-on-error',
-  'circe-response',
-  'circe-unless',
-  'circe-combine-routers'
+  'circe-response-api',
+  'circe-unless'
 ]
 
 function getPackageRoot (name) {

@@ -1,7 +1,7 @@
 import * as Koa from 'koa'
 
 // tslint:disable-next-line:no-shadowed-variable
-function packBody (success: boolean, data: any) {
+function packBody (success: boolean, data?: any) {
   let body: any = {success}
 
   if (typeof data === 'string') {
@@ -13,14 +13,18 @@ function packBody (success: boolean, data: any) {
   return body
 }
 
-export function success (this: Koa.Context, data: string): any
-export function success (this: Koa.Context, data: any): any {
-  return this.response.body = (packBody(true, data))
+export interface IData {
+  [name: string]: any
 }
 
-export function fail (this: Koa.Context, data: string): any
-export function fail (this: Koa.Context, data: any): any {
-  return this.response.body = (packBody(false, data))
+export function success (this: Koa.Context, data?: string | IData): any {
+  this.status = 200
+  return this.response.body = packBody(true, data)
+}
+
+export function fail (this: Koa.Context, data?: string | IData): any {
+  this.status = 200
+  return this.response.body = packBody(false, data)
 }
 
 export function error (this: Koa.Context, status: number = 404): void {
@@ -33,10 +37,16 @@ export interface IAttachToOptions {
   error?: string
 }
 
+export interface IResponseApiContext {
+  success: typeof success
+  fail: typeof fail
+  error: typeof error
+}
+
 const defaultOptions: IAttachToOptions = {
   success: 'success',
   fail: 'fail',
-  error: 'success'
+  error: 'error'
 }
 
 export default function attachTo (ctx: Koa.BaseContext | Koa.Context, options: IAttachToOptions = defaultOptions) {
