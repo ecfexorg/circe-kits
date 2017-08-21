@@ -13,20 +13,27 @@ let options: any = {
   getBody: (ctx: any) => ctx.request.body
 }
 
-function checkValue (this: Koa.Context, value: any, required?: boolean) {
+export function checkValue (this: Koa.Context, value: any, required?: boolean) {
   return new Validator('', value, required)
 }
 
-function checkQuery (this: Koa.Context, key: string, value: any, required?: boolean) {
+export function checkQuery (this: Koa.Context, key: string, value: any, required?: boolean) {
   return new Validator(key, options.getQuery(this)[key], required)
 }
 
-function checkParam (this: Koa.Context, key: string, value: any, required?: boolean) {
+export function checkParam (this: Koa.Context, key: string, value: any, required?: boolean) {
   return new Validator(key, options.getParams(this)[key], required)
 }
 
-function checkBody (this: Koa.Context, key: string, value: any, required?: boolean) {
+export function checkBody (this: Koa.Context, key: string, value: any, required?: boolean) {
   return new Validator(key, options.getBody(this)[key], required)
+}
+
+export interface ICheckerContext {
+  vals: any,
+  checkQuery: typeof checkQuery
+  checkParam: typeof checkParam
+  checkBody: typeof checkBody
 }
 
 export default function entryMiddleware (_options?: IOptions): Koa.Middleware {
