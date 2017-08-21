@@ -22,7 +22,13 @@ function requirePath (p: string) {
   if (isDirectory(p)) {
     return requireDir(p, {recurse: true})
   } else {
-    return require(p)
+    try {
+      return require(p)
+    } catch (error) {
+      // tslint:disable-next-line:no-console
+      console.warn(error.message)
+      return null
+    }
   }
 }
 
