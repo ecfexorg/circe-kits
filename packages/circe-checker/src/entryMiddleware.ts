@@ -17,15 +17,15 @@ export function checkValue (this: Koa.Context, value: any, required?: boolean) {
   return new Validator('', value, required)
 }
 
-export function checkQuery (this: Koa.Context, key: string, value: any, required?: boolean) {
+export function checkQuery (this: Koa.Context, key: string, required?: boolean) {
   return new Validator(key, options.getQuery(this)[key], required)
 }
 
-export function checkParam (this: Koa.Context, key: string, value: any, required?: boolean) {
+export function checkParam (this: Koa.Context, key: string, required?: boolean) {
   return new Validator(key, options.getParams(this)[key], required)
 }
 
-export function checkBody (this: Koa.Context, key: string, value: any, required?: boolean) {
+export function checkBody (this: Koa.Context, key: string, required?: boolean) {
   return new Validator(key, options.getBody(this)[key], required)
 }
 

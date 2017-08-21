@@ -1,4 +1,4 @@
-export * from './checkMiddleware'
+export {default, Validation, IValidationMap, IValidationValues} from './checkMiddleware'
 export {default as init, ICheckerContext, checkBody, checkParam, checkQuery} from './entryMiddleware'
 export {default as onError} from './errorMiddleware'
 export {default as ValidationError} from './ValidationError'
