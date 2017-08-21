@@ -39,7 +39,7 @@ const defaultOptions: IAttachToOptions = {
   error: 'success'
 }
 
-export default function attachTo (ctx: Koa.BaseContext | Koa.Context, options: IAttachToOptions) {
+export default function attachTo (ctx: Koa.BaseContext | Koa.Context, options: IAttachToOptions = defaultOptions) {
   if (options.success) {
     (ctx as any)[options.success] = success
   }
