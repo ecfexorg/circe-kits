@@ -2,7 +2,7 @@ import * as Koa from 'koa'
 import * as Router from 'koa-router'
 import * as compose from 'koa-compose'
 
-function combineRoutes (routers: Router[], mounted?: string): Koa.Middleware {
+export default function combineRoutes (routers: Router[], mounted?: string): Koa.Middleware {
   const middlewares: Koa.Middleware[] = []
 
   routers.forEach((router) => {
