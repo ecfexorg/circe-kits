@@ -16,7 +16,7 @@ export interface IIncomingFormOptions {
 }
 
 export interface IBodyParserOptions {
-  onError?: (err: Error, ctx: any) => void
+  onError?: (err: Error, ctx: Koa.Context) => void
   encoding?: string
   jsonLimit?: string
   formLimit?: string

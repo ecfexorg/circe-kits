@@ -1,6 +1,6 @@
 import * as Koa from 'koa'
 
-export type OnErrorHandler = (err: Error, ctx: any) => void
+export type OnErrorHandler = (err: Error, ctx: Koa.Context) => void
 
 export default  function onErrorMiddleware (handler: OnErrorHandler): Koa.Middleware {
   return function middleware (ctx, next) {

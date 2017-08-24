@@ -1,6 +1,6 @@
 import * as Koa from 'koa'
 
-export type Validation = (ctx: any) => any
+export type Validation = (ctx: Koa.Context) => any
 
 export interface IValidationMap {
   [name: string]: Validation
@@ -11,7 +11,7 @@ export interface IValidationValues {
 }
 
 export default function checkMiddleware (validations?: IValidationMap): Koa.Middleware {
-  return function (ctx: any, next) {
+  return function (ctx: Koa.Context, next) {
     const vals: IValidationValues = ctx.vals = ctx.vals || {}
 
     if (validations) {

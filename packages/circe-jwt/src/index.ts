@@ -45,7 +45,7 @@ export default function jwtMiddleware (options: IJWTOptions): Koa.Middleware & I
     throw new Error('missing secret')
   }
 
-  const middleware: any = function (ctx: any, next: any) {
+  const middleware: any = function (ctx: Koa.Context, next: any) {
     return resolveHeader(ctx).then((accessToken: string) => {
       ctx.state = ctx.state || {}
       ctx.state.jwtToken = accessToken
@@ -63,7 +63,7 @@ export default function jwtMiddleware (options: IJWTOptions): Koa.Middleware & I
   return middleware
 }
 
-function resolveHeader (ctx: any) {
+function resolveHeader (ctx: Koa.Context) {
   return new Promise((resolve, reject) => {
     if (!ctx.header || !ctx.header.authorization) {
       reject(new Error('can\'t find authorization header'))

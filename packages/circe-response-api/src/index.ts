@@ -1,5 +1,10 @@
 import * as Koa from 'koa'
 
+declare module 'koa' {
+  // tslint:disable-next-line:no-empty-interface interface-name
+  interface Context extends IResponseApiContext {}
+}
+
 // tslint:disable-next-line:no-shadowed-variable
 function packBody (success: boolean, data?: any) {
   let body: any = {success}
