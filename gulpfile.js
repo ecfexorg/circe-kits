@@ -14,7 +14,8 @@ const packages = [
   'circe-jwt',
   'circe-on-error',
   'circe-response-api',
-  'circe-unless'
+  'circe-unless',
+  'circe-controller'
 ]
 
 function getPackageRoot (name) {
