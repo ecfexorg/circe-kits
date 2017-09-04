@@ -8,7 +8,7 @@
 
 ```typescript
 import * as Koa from 'koa'
-import {IContext, Controller, Get, Post, Put, Delete, Use, ToRouter} from 'circe-controller'
+import {IContext, Controller, Get, Post, Put, Delete, Use, toRouter} from 'circe-controller'
 
 @Controller('/users')
 @Use(someMiddleware)
