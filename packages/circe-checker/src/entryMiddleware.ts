@@ -1,5 +1,6 @@
 import * as Koa from 'koa'
 import Validator from "./Validator";
+import { check } from "./checkMiddleware";
 
 export interface IOptions {
   getQuery?: (ctx: Koa.Context) => any,
@@ -20,6 +21,7 @@ declare module 'koa' {
 
 export interface ICheckerContext {
   vals: any,
+  check: typeof check,
   checkQuery: typeof checkQuery
   checkParam: typeof checkParam
   checkBody: typeof checkBody
@@ -47,6 +49,7 @@ export default function entryMiddleware (_options?: IOptions): Koa.Middleware {
   }
 
   return function (ctx: any, next) {
+    ctx.check = check
     ctx.checkValue = checkValue
     ctx.checkQuery = checkQuery
     ctx.checkParam = checkParam
