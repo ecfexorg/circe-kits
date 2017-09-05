@@ -7,14 +7,13 @@ export default class MetadataStore {
     return Reflect.defineMetadata(key, value, target)
   }
 
-  public static push (target: any, list: string, value: any): void {
+  public static push (target: any, list: string, ...values: any[]): void {
     let metadata = MetadataStore.get<any>(target, list, [])
 
     if (!Array.isArray(metadata)) {
       metadata = [metadata]
     }
 
-    metadata.push(value)
-    MetadataStore.set(target, list, metadata)
+    MetadataStore.set(target, list, metadata.concat(values))
   }
 }

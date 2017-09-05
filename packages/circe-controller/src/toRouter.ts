@@ -6,11 +6,11 @@ export interface IController {
   new (...args: any[]): any
 }
 
-export default function toRouter (controllers: IController[]) {
+export default function toRouter (controllers: IController[], getter?: (Controller: IController) => any) {
   const router: any = new Router()
 
   for (const Controller of controllers) {
-    const ctrl = new Controller()
+    const ctrl = getter ? getter(Controller) : new Controller()
     const routes = MetadataStore.get<any>(Controller, ROUTES, [])
 
     for (const route of routes) {

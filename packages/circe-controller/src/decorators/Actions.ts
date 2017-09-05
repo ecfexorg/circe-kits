@@ -7,6 +7,9 @@ export type ActionDecorator =
 
 export function Action (method: string, path: string = ''): ActionDecorator {
   return function (target, name, descriptor) {
+    if (descriptor.value) {
+      descriptor.value = descriptor.value.bind(target)
+    }
     MetadataStore.push(target, ACTIONS, {method, path, name})
   }
 }
