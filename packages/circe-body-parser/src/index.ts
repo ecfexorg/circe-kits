@@ -2,6 +2,15 @@ import * as Koa from 'koa'
 import * as parse from 'co-body'
 import {IncomingForm} from 'formidable'
 
+export interface IBodyParserRequest {
+  body: any
+}
+
+declare module 'koa' {
+  // tslint:disable-next-line:no-empty-interface interface-name
+  interface Request extends IBodyParserRequest {}
+}
+
 export interface IIncomingFormOptions {
   encoding?: string
   uploadDir?: string
